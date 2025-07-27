@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import { Menu, X, ChevronDown, ChevronUp, Phone, Mail, MapPin } from 'lucide-react';
 import seefLogo from '../assets/seef-logo.svg';
+import MapLocation from '../utils/MapLocation';
 
 const navItems = [
   {
@@ -17,9 +18,14 @@ const navItems = [
     path: '/about',
     children: [
       { label: 'Our Story', path: '/about/story' },
-      { label: 'Our Team', path: '/about/team' },
       { label: 'Our Mission', path: '/about/mission' },
-      { label: 'Core Values', path: '/about/values' }
+      { label: 'Our Achievements', path: '/about/achievements' },
+      { label: 'Our Awards', path: '/about/awards' },
+      { label: 'Our Projects', path: '/about/projects' },
+      { label: 'Our Team', path: '/about/team' },
+      { label: 'Core Values', path: '/about/values' },
+      { label: 'Our Partners', path: '/about/partners' },
+      { label: 'Our Clients', path: '/about/clients' },
     ]
   },
   {
@@ -27,7 +33,9 @@ const navItems = [
     path: '/services',
     children: [
       { label: 'Consulting', path: '/services/consulting' },
-      { label: 'Development', path: '/services/development' },
+      { label: 'Research & Development', path: '/services/research' },
+      { label: 'Training Programs', path: '/services/training' },
+      { label: 'Innovation Solutions', path: '/services/innovation' },
       { label: "Agriculture & Environment", path: "/services/agriculture" },
       { label: "Water Management", path: "/services/water" },
       { label: "Health & Social Affairs", path: "/services/health" },
@@ -51,6 +59,7 @@ const navItems = [
 ];
 
 function Header() {
+  const [isMapOpen, setIsMapOpen] = useState(false)
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
@@ -96,7 +105,9 @@ function Header() {
               <span>info@seefconsulting.com</span>
             </div>
           </div>
-          <div className="flex items-center space-x-2">
+          <div className="flex items-center space-x-2 cursor-pointer hover:text-blue-200 transform hover:scale-105 transition-all duration-200 shadow-lg hover:shadow-xl"
+          onClick={() => setIsMapOpen(true)}
+          >
             <MapPin className="w-4 h-4" />
             <span>Global Consulting Services</span>
           </div>
@@ -282,6 +293,11 @@ function Header() {
             </nav>
           </div>
         </div>
+        {/* Map Location Modal */}
+      <MapLocation 
+        isOpen={isMapOpen} 
+        onClose={() => setIsMapOpen(false)} 
+      />
       </header>
 
       {/* Spacer to prevent content from hiding behind fixed header */}
