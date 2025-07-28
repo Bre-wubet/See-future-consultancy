@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom"
-import { Facebook, Linkedin, Instagram, Twitter, Mail, MapPin, Phone, ArrowRight } from "lucide-react"
+import { Facebook, Linkedin, Instagram, Twitter, Mail, MapPin, Phone, Users, Briefcase, Target, FileText, Leaf, Droplets, Heart, Map } from "lucide-react"
 import MapLocation from "../utils/MapLocation"
 import { useState } from "react"
 
@@ -8,17 +8,21 @@ function Footer() {
   const currentYear = new Date().getFullYear()
 
   const quickLinks = [
-    { name: "About Us", href: "/about" },
-    { name: "Services", href: "/services" },
-    { name: "Thematic Areas", href: "/thematic-areas" },
-    { name: "Contact", href: "/contact" },
+    { name: "About Us", href: "/about", icon: Users },
+    { name: "Services", href: "/services", icon: Briefcase },
+    { name: "Thematic Areas", href: "/thematic-areas", icon: Target },
+    { name: "Contact", href: "/contact", icon: Mail },
   ]
 
   const services = [
-    { name: "Research & Development", href: "/services" },
-    { name: "Consulting", href: "/services" },
-    { name: "Training Programs", href: "/services" },
-    { name: "Innovation Solutions", href: "/services" },
+    { name: "Research & Development", href: "/services", icon: FileText },
+    { name: "Consulting", href: "/services", icon: Briefcase },
+    { name: "Training Programs", href: "/services", icon: Users },
+    { name: "Innovation Solutions", href: "/services", icon: Target },
+    { name: "Agriculture & Environment", href: "/services", icon: Leaf },
+    { name: "Water Management", href: "/services", icon: Droplets },
+    { name: "Health & Social Affairs", href: "/services", icon: Heart },
+    { name: "GeoInformation Services", href: "/services", icon: Map }
   ]
 
   const socialLinks = [
@@ -29,7 +33,7 @@ function Footer() {
   ]
 
   return (
-    <footer className="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white relative overflow-hidden">
+    <footer className="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white relative bottom-0 w-full overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,rgba(255,255,255,0.15)_1px,transparent_0)] bg-[length:20px_20px]"></div>
@@ -97,7 +101,7 @@ function Footer() {
                       to={link.href}
                       className="flex items-center text-gray-300 hover:text-white transition-all duration-200 group"
                     >
-                      <ArrowRight className="h-3 w-3 mr-2 text-blue-400 opacity-0 group-hover:opacity-100 transition-all duration-200" />
+                      <link.icon className="h-4 w-4 mr-3 text-blue-400 flex-shrink-0 group-hover:scale-110 transition-transform duration-200" />
                       <span className="text-sm group-hover:translate-x-1 transition-transform duration-200">
                         {link.name}
                       </span>
@@ -120,7 +124,7 @@ function Footer() {
                       to={service.href}
                       className="flex items-center text-gray-300 hover:text-white transition-all duration-200 group"
                     >
-                      <ArrowRight className="h-3 w-3 mr-2 text-blue-400 opacity-0 group-hover:opacity-100 transition-all duration-200" />
+                      <service.icon className="h-4 w-4 mr-3 text-blue-400 flex-shrink-0 group-hover:scale-110 transition-transform duration-200" />
                       <span className="text-sm group-hover:translate-x-1 transition-transform duration-200">
                         {service.name}
                       </span>
