@@ -10,7 +10,7 @@ const navItems = [
     path: '/',
     children: [
       { label: 'Our Vision', path: '/#vision' },
-      { label: 'Latest News', path: '/#news' }
+      { label: 'Latest News', path: '/latest-news' }
     ]
   },
   {
@@ -49,7 +49,11 @@ const navItems = [
       { label: 'Climate Change', path: '/thematic-areas/climate-change' },
       { label: 'Sustainable Development', path: '/thematic-areas/sustainable-development' },
       { label: 'Biodiversity', path: '/thematic-areas/biodiversity' },
-      { label: 'Renewable Energy', path: '/thematic-areas/renewable-energy' }
+      { label: 'Renewable Energy', path: '/thematic-areas/renewable-energy' },
+      { label: 'Water Resources', path: '/thematic-areas/water-resources' },
+      { label: 'Agriculture', path: '/thematic-areas/agriculture' },
+      { label: 'Health & Social Affairs', path: '/thematic-areas/health-social' },
+      { label: 'GeoInformation Services', path: '/thematic-areas/geo-info' }
     ]
   },
   {
@@ -109,7 +113,7 @@ function Header() {
           onClick={() => setIsMapOpen(true)}
           >
             <MapPin className="w-4 h-4" />
-            <span>Global Consulting Services</span>
+            <span>SEEF Consulting</span>
           </div>
         </div>
       </div>
